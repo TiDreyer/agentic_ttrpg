@@ -1,7 +1,7 @@
 import json
 from uuid import uuid7
 
-from pydantic_ai import Agent
+from pydantic_ai import Agent, exceptions
 
 from agentic_ttrpg import config, prompts, tools
 
@@ -48,7 +48,11 @@ SULLY = Agent(
 
 
 def react(player: Agent, prompt: str) -> None:
-    response = player.run_sync(prompt)
+    try:
+        response = player.run_sync(prompt)
+    except exceptions.UnexpectedModelBehavior as e:
+        print(f"Agent call failed: {e}")
+        return 
     messages = json.loads(response.all_messages_json().decode())
     with open(__AGENT_LOG_DIR / f"{uuid7()}.json", "w") as word_log_file:
         json.dump(fp=word_log_file, obj=messages, indent=2)
