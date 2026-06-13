@@ -5,6 +5,7 @@ description = "Using pydantic.ai to let some agents play a TTRPG."
 readme = "README.md"
 requires-python = "==3.14.*"
 dependencies = [
+    "pydantic>=2.13.4",
     "pydantic-ai>=1.107.0",
 ]
 
