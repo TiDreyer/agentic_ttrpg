@@ -40,3 +40,7 @@ SYSTEM_JULES = __build_player_prompt(name="Jules", profile_path=config.CONTEXT_D
 SYSTEM_MAYA = __build_player_prompt(name="Maya", profile_path=config.CONTEXT_DIR / "player_maya.md", session_prompt=_SESSION_PC)
 SYSTEM_PRIYA = __build_player_prompt(name="Priya", profile_path=config.CONTEXT_DIR / "player_priya.md", session_prompt=_SESSION_PC)
 SYSTEM_SULLY = __build_player_prompt(name="Sully", profile_path=config.CONTEXT_DIR / "player_sully.md", session_prompt=_SESSION_PC)
+
+MODERATION_START = "The game starts. Start moderating and ask every player to introduce themselves and their character."
+MODERATION_END = "Your air time is over. Moderate the end of this episode."
+INTERACTION_OPTION = "A camera pans to you. You have a chance to do something now."

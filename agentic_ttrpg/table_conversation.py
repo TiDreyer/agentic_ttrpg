@@ -48,9 +48,13 @@ def act(action: Action) -> None:
 
 def read_transcript(max_interactions: int = 10, skip_last_n: int = 0) -> str:
     """Read the transcript of the last n interactions that happened at the table"""
+    print("[player reads transcript]")
+    return transcript_record(max_interactions=max_interactions, skip_last_n=skip_last_n)
+
+
+def transcript_record(max_interactions: int = 10, skip_last_n: int = 0) -> str:
     if skip_last_n > 0:
         last_n_things = __CONVERSATION[-max_interactions - skip_last_n : -skip_last_n]
     else:
         last_n_things = __CONVERSATION[-max_interactions:]
-    print("[player reads transcript]")
     return "\n".join([str(thing) for thing in last_n_things])
