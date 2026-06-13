@@ -1,4 +1,5 @@
 from random import choice
+from time import sleep
 
 from agentic_ttrpg import players, prompts, table_conversation
 
@@ -16,6 +17,7 @@ __RANDOM_SET = __ACTIVE_PLAYERS + [players.MARCUS, players.MARCUS]
 
 
 def __call_upon_player(player: players.Agent) -> None:
+    sleep(0.25)
     prompt = (
         "These are the last things that happened at the table:\n"
         + table_conversation.transcript_record(__DEFAULT_TABLE_LOG_LENGTH)
