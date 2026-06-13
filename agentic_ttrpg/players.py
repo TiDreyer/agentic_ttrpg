@@ -39,9 +39,9 @@ PRIYA = Agent(
     tools=tools.PLAYER_TOOLS,
     retries=__MAX_RETRIES,
 )
-SULLY = Agent(
+SAM = Agent(
     model=config.MODEL,
-    system_prompt=prompts.SYSTEM_SULLY,
+    system_prompt=prompts.SYSTEM_SAM,
     tools=tools.PLAYER_TOOLS,
     retries=__MAX_RETRIES,
 )
@@ -52,7 +52,7 @@ def react(player: Agent, prompt: str) -> None:
         response = player.run_sync(prompt)
     except exceptions.UnexpectedModelBehavior as e:
         print(f"Agent call failed: {e}")
-        return 
+        return
     messages = json.loads(response.all_messages_json().decode())
     with open(__AGENT_LOG_DIR / f"{uuid7()}.json", "w") as word_log_file:
         json.dump(fp=word_log_file, obj=messages, indent=2)

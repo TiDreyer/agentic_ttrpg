@@ -10,7 +10,7 @@ __ACTIVE_PLAYERS = [
     players.JULES,
     players.MAYA,
     players.PRIYA,
-    players.SULLY,
+    players.SAM,
 ]
 # give GM double chance of being called upon
 __RANDOM_SET = __ACTIVE_PLAYERS + [players.MARCUS, players.MARCUS]
