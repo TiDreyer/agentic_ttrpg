@@ -1,0 +1,29 @@
+[project]
+name = "agentic_ttrpg"
+version = "0.1.0"
+description = "Using pydantic.ai to play a TTRPG"
+readme = "README.md"
+requires-python = "==3.14.*"
+dependencies = [
+]
+
+[dependency-groups]
+dev = [
+  "ruff",
+  "ty",
+  "pytest",
+]
+
+[tool.uv]
+package = true
+
+[tool.setuptools]
+packages = [
+    "agentic_ttrpg",
+]
+
+[tool.ruff]
+line-length = 160
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
