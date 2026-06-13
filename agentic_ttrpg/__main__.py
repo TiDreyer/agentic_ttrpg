@@ -21,12 +21,13 @@ def __call_upon_player(player: players.Agent) -> None:
         + table_conversation.transcript_record(__DEFAULT_TABLE_LOG_LENGTH)
         + prompts.INTERACTION_OPTION
     )
-    player.run_sync(prompt)
+    players.react(player=player, prompt=prompt)
 
 
 def main() -> None:
     # start and introduction round
-    players.MARCUS.run_sync(prompts.MODERATION_START)
+    players.react(player=players.MARCUS, prompt=prompts.MODERATION_START)
+
     for player in __ACTIVE_PLAYERS:
         __call_upon_player(player=player)
 
@@ -36,7 +37,7 @@ def main() -> None:
         __call_upon_player(player=player)
 
     # end of the game
-    players.MARCUS.run_sync(prompts.MODERATION_END)
+    players.react(player=players.MARCUS, prompt=prompts.MODERATION_END)
 
 
 main()
