@@ -24,6 +24,8 @@ _PLAYER_TEMPLATE = dedent("""
                           
     You can use this chat ONLY to plan your actions. Nothing you write here will be known to anybody else.
     Please use the appropriate tools for ALL communication at the table or interaction with the game.
+    End this chat once you have done everything you wanted to do for the moment.
+    You will be called upon again after the other players have acted.
     """).strip()
 
 
