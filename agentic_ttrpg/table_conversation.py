@@ -30,12 +30,6 @@ def say(words: SpokenWords) -> None:
     print(words)
 
 
-def act(action: Action) -> None:
-    """Perform a physical action at the table"""
-    __CONVERSATION.append(action)
-    print(action)
-
-
 def read_transcript(player_name: str, max_interactions: int = 10, skip_last_n: int = 0) -> str:
     """Read the transcript of the last n interactions that happened at the table"""
     print(f"[{player_name} reads transcript ({max_interactions}-{skip_last_n})]")
