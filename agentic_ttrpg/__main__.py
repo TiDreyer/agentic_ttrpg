@@ -4,7 +4,7 @@ from agentic_ttrpg import config, prompts, tools
 
 game_master = Agent(
     model=config.MODEL,
-    system_prompt=prompts.GM_SYSTEM,
+    system_prompt=prompts.SYSTEM_MARCUS,
     tools=[
         tools.roll_dice,
         tools.speak_at_table,
