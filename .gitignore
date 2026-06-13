@@ -33,3 +33,6 @@ MANIFEST
 
 # Ruff stuff:
 .ruff_cache/
+
+# project specific:
+game_logs/
