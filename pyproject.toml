@@ -1,7 +1,7 @@
 [project]
 name = "agentic_ttrpg"
 version = "0.1.0"
-description = "Using pydantic.ai to play a TTRPG"
+description = "Using pydantic.ai to let some agents play a TTRPG."
 readme = "README.md"
 requires-python = "==3.14.*"
 dependencies = [

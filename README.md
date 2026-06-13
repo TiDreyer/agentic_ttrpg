@@ -1,3 +1,3 @@
-# Money db
+# Agentic TTRPG
 
-Minimal web app to manage your finances.
+Using pydantic.ai to let some agents play a TTRPG.
