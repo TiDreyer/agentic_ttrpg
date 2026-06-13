@@ -38,7 +38,7 @@ def act(action: Action) -> None:
 
 def read_transcript(player_name: str, max_interactions: int = 10, skip_last_n: int = 0) -> str:
     """Read the transcript of the last n interactions that happened at the table"""
-    print(f"[{player_name} reads transcript ({max_interactions-skip_last_n})]")
+    print(f"[{player_name} reads transcript ({max_interactions}-{skip_last_n})]")
     return transcript_record(max_interactions=max_interactions, skip_last_n=skip_last_n)
 
 
