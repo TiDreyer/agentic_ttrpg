@@ -18,7 +18,6 @@ def _roll_dice(type_of_dice: Literal[2, 4, 6, 8, 10, 12, 20, 100] = 20, number_o
 PLAYER_TOOLS = [
     Tool(_roll_dice, takes_ctx=False),
     Tool(table_conversation.say, takes_ctx=False),
-    Tool(table_conversation.act, takes_ctx=False),
     Tool(table_conversation.read_transcript, takes_ctx=False),
 ]
 GM_TOOLS = PLAYER_TOOLS + []

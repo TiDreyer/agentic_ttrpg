@@ -1,4 +1,5 @@
 from random import choice
+from time import sleep
 
 from agentic_ttrpg import players, prompts, table_conversation
 
@@ -9,24 +10,26 @@ __ACTIVE_PLAYERS = [
     players.JULES,
     players.MAYA,
     players.PRIYA,
-    players.SULLY,
+    players.SAM,
 ]
 # give GM double chance of being called upon
 __RANDOM_SET = __ACTIVE_PLAYERS + [players.MARCUS, players.MARCUS]
 
 
 def __call_upon_player(player: players.Agent) -> None:
+    sleep(0.25)
     prompt = (
         "These are the last things that happened at the table:\n"
         + table_conversation.transcript_record(__DEFAULT_TABLE_LOG_LENGTH)
         + prompts.INTERACTION_OPTION
     )
-    player.run_sync(prompt)
+    players.react(player=player, prompt=prompt)
 
 
 def main() -> None:
     # start and introduction round
-    players.MARCUS.run_sync(prompts.MODERATION_START)
+    players.react(player=players.MARCUS, prompt=prompts.MODERATION_START)
+
     for player in __ACTIVE_PLAYERS:
         __call_upon_player(player=player)
 
@@ -36,7 +39,7 @@ def main() -> None:
         __call_upon_player(player=player)
 
     # end of the game
-    players.MARCUS.run_sync(prompts.MODERATION_END)
+    players.react(player=players.MARCUS, prompt=prompts.MODERATION_END)
 
 
 main()
