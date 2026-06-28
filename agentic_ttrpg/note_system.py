@@ -1,3 +1,5 @@
+import shutil
+from datetime import datetime
 from pathlib import Path
 
 from agentic_ttrpg import config
@@ -35,3 +37,26 @@ class NoteBook:
         note_path = self.__note_dir / f"{note_name}.md"
         note_path.parent.mkdir(parents=True, exist_ok=True)
         return note_path.resolve()
+
+    def write_note(self, note_name: str, note_text: str) -> None:
+        note_path = self.__path(note_name=note_name)
+        if note_path.is_file():
+            self.delete_note(note_name=note_name)
+        with open(note_path, "w") as note_file:
+            note_file.write(note_text)
+
+    def read_note(self, note_name: str) -> str | None:
+        note_path = self.__path(note_name=note_name)
+        if not note_path.is_file():
+            return None
+        with open(note_path, "r") as note_file:
+            return note_file.read()
+
+    def delete_note(self, note_name: str) -> None:
+        note_path = self.__path(note_name=note_name)
+        if not note_path.is_file():
+            raise ValueError("Note does not exist")
+        timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        deleted_path = self.__deleted_dir / f"{note_name}.{timestamp}.md"
+        deleted_path.parent.mkdir(parents=True, exist_ok=True)
+        shutil.move(note_path, deleted_path)
