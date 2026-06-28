@@ -12,37 +12,37 @@ __AGENT_LOG_DIR.mkdir(exist_ok=False, parents=True)
 MARCUS = Agent(
     model=config.MODEL,
     system_prompt=prompts.SYSTEM_MARCUS,
-    tools=tools.GM_TOOLS,
+    tools=tools.GM_TOOLS + tools.create_personal_note_tools("marcus"),
     retries=__MAX_RETRIES,
 )
 CHLOE = Agent(
     model=config.MODEL,
     system_prompt=prompts.SYSTEM_CHLOE,
-    tools=tools.PLAYER_TOOLS,
+    tools=tools.PLAYER_TOOLS + tools.create_personal_note_tools("chloe"),
     retries=__MAX_RETRIES,
 )
 JULES = Agent(
     model=config.MODEL,
     system_prompt=prompts.SYSTEM_JULES,
-    tools=tools.PLAYER_TOOLS,
+    tools=tools.PLAYER_TOOLS + tools.create_personal_note_tools("jules"),
     retries=__MAX_RETRIES,
 )
 MAYA = Agent(
     model=config.MODEL,
     system_prompt=prompts.SYSTEM_MAYA,
-    tools=tools.PLAYER_TOOLS,
+    tools=tools.PLAYER_TOOLS + tools.create_personal_note_tools("maya"),
     retries=__MAX_RETRIES,
 )
 PRIYA = Agent(
     model=config.MODEL,
     system_prompt=prompts.SYSTEM_PRIYA,
-    tools=tools.PLAYER_TOOLS,
+    tools=tools.PLAYER_TOOLS + tools.create_personal_note_tools("priya"),
     retries=__MAX_RETRIES,
 )
 SAM = Agent(
     model=config.MODEL,
     system_prompt=prompts.SYSTEM_SAM,
-    tools=tools.PLAYER_TOOLS,
+    tools=tools.PLAYER_TOOLS + tools.create_personal_note_tools("sam"),
     retries=__MAX_RETRIES,
 )
 

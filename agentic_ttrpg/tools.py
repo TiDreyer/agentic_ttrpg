@@ -3,7 +3,7 @@ from typing import Literal
 
 from pydantic_ai import Tool
 
-from agentic_ttrpg import table_conversation
+from agentic_ttrpg import note_system, table_conversation
 
 
 def _roll_dice(type_of_dice: Literal[2, 4, 6, 8, 10, 12, 20, 100] = 20, number_of_dice: int = 1) -> str:
@@ -13,6 +13,16 @@ def _roll_dice(type_of_dice: Literal[2, 4, 6, 8, 10, 12, 20, 100] = 20, number_o
     results = [randint(1, type_of_dice) for _ in range(number_of_dice)]
     return_str = f"sum({results}) = {sum(results)}"
     return return_str
+
+
+def create_personal_note_tools(player_name: str) -> list[Tool]:
+    notebook = note_system.NoteBook(player_name=player_name)
+    return [
+        Tool(notebook.write_note, takes_ctx=False),
+        Tool(notebook.read_note, takes_ctx=False),
+        Tool(notebook.delete_note, takes_ctx=False),
+        Tool(notebook.list_notes, takes_ctx=False),
+    ]
 
 
 PLAYER_TOOLS = [
