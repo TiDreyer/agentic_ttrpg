@@ -21,6 +21,7 @@ def create_personal_note_tools(player_name: str) -> list[Tool]:
         Tool(notebook.write_note, takes_ctx=False),
         Tool(notebook.read_note, takes_ctx=False),
         Tool(notebook.delete_note, takes_ctx=False),
+        Tool(notebook.list_notes, takes_ctx=False),
     ]
 
 

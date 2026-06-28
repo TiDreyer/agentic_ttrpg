@@ -60,3 +60,10 @@ class NoteBook:
         deleted_path = self.__deleted_dir / f"{note_name}.{timestamp}.md"
         deleted_path.parent.mkdir(parents=True, exist_ok=True)
         shutil.move(note_path, deleted_path)
+    
+    def list_notes(self) -> list[str]:
+        note_names = []
+        for file_name in self.__note_dir.iterdir():
+            if file_name.is_file():
+                note_names.append(file_name.name)
+        return note_names
